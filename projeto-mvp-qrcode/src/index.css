@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply antialiased selection:bg-purple-500 selection:text-white bg-[#030014];
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full transition-colors;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-[0_8px_32px_0_rgba(0,0,0,0.37)];
+  }
+  
+  .glass-input {
+    @apply bg-white/[0.05] border border-white/10 text-white focus:border-purple-500/50 focus:bg-white/[0.08] outline-none transition-all;
+  }
+
+  .atmosphere {
+    @apply fixed inset-0 -z-10 overflow-hidden pointer-events-none;
+    background: radial-gradient(circle at 0% 0%, rgba(76, 0, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(0, 198, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(112, 0, 255, 0.05) 0%, transparent 100%);
+  }
+
+  .blob {
+    @apply absolute blur-[120px] rounded-full opacity-30;
+  }
+}
+
+/* Accessibility Modes */
+.acc-protanopia { filter: url(#protanopia); }
+.acc-deuteranopia { filter: url(#deuteranopia); }
+.acc-tritanopia { filter: url(#tritanopia); }
+.acc-achromatopsia { filter: url(#achromatopsia); }
+
+.acc-high-contrast {
+  --contrast-bg: #000;
+  --contrast-text: #fff;
+  filter: contrast(1.5) saturate(1.2);
+  background-image: 
+    linear-gradient(to right, #ffffff10 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff10 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.acc-high-contrast .glass-card {
+  @apply bg-black border-white/40 border-2;
+  backdrop-filter: none;
+}
+
+.acc-high-contrast .glass-input {
+  @apply bg-black border-white/60 border-2 text-white;
+}
+
+.acc-high-contrast h1, 
+.acc-high-contrast h2, 
+.acc-high-contrast h3 {
+  @apply text-white font-black;
+}
+
+.acc-high-contrast p {
+  @apply text-gray-200;
+}
+
+

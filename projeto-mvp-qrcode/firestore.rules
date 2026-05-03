@@ -1,0 +1,53 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 1. Primitive Definition
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(userId) { return isSignedIn() && request.auth.uid == userId; }
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+
+    // 2. User Profiles
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) 
+        && incoming().userId == request.auth.uid
+        && incoming().email == request.auth.token.email
+        && incoming().keys().hasAll(['userId', 'email'])
+        && incoming().keys().size() >= 2;
+      allow update: if isOwner(userId) 
+        && incoming().userId == existing().userId
+        && incoming().email == existing().email;
+    }
+
+    // 3. QR Codes
+    match /qrcodes/{qrId} {
+      function isValidQRCode(data) {
+        return data.ownerId == request.auth.uid
+          && data.settings is map
+          && data.ownerId is string;
+      }
+
+      allow get: if isSignedIn() && existing().ownerId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.ownerId == request.auth.uid;
+      
+      allow create: if isSignedIn() 
+        && isValidQRCode(incoming())
+        && isValidId(qrId);
+
+      allow update: if isSignedIn() 
+        && isOwner(existing().ownerId)
+        && isValidQRCode(incoming())
+        && incoming().ownerId == existing().ownerId;
+
+      allow delete: if isSignedIn() && isOwner(existing().ownerId);
+    }
+  }
+}
