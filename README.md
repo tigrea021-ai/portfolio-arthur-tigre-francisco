@@ -47,4 +47,5 @@ Atualmente cursando o 1º semestre de Análise e Desenvolvimento de Sistemas na 
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
 | **MVP+ Gerador de QRCODE** | Criação de QRCODES personalizados. | [Ver Projeto](./projeto-mvp-qrcode/) |
- 
+| **Corrida do prompt** | Criação de imagens por uso da IA. | [Ver Projeto](./projeto-corrida-do-prompt/) |
+  
