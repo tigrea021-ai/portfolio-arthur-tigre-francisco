@@ -50,4 +50,4 @@ Atualmente cursando o 1º semestre de Análise e Desenvolvimento de Sistemas na 
 | **Corrida do prompt** | Atividade em grupo onde trios usam até 5 tentativas para obter o melhor resultado de uma IA, refinando o prompt a cada rodada.. | [Ver Projeto](./projeto-corrida-do-prompt/) |
 | **Laboratorio de Classificação** |Atividade prática em duas partes: primeiro, treinar uma IA com imagens estereotipadas para observar como ela erra na classificação; depois, refletir por escrito sobre como esse viés nos dados causa impacto real na sociedade. | [Ver Projeto](./projeto-laboratorio-de-classificacao-visual/) |
 | **Batalha de Modelo** | Atividade onde você cria um prompt em XML pedindo uma página HTML e testa esse mesmo prompt em várias IAs (ChatGPT, Gemini, Claude, etc.), comparando qual delas seguiu melhor as instruções, gastou menos tokens e é mais indicada para cada tipo de tarefa. | [Ver Projeto](./projeto-batalha-de-modelo/) |
-
+| **Engenharia Reversa** |Gerador de CSS Neumórfico com preview em tempo real. Clone do neumorphism.io — feito com HTML, CSS e JS puro. | [Ver Projeto](./projeto-engenharia-reversa/) |
