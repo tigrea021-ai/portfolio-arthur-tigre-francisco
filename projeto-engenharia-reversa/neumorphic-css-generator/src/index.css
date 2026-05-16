@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #e0e5ec;
+  --text: #4a5568;
+  --text-muted: #8896a8;
+  --panel-bg: #eaeff6;
+  --accent: #5b8dee;
+  --accent-soft: rgba(91,141,238,0.12);
+}
+
+body {
+  @apply font-sans text-[var(--text)] bg-[var(--bg)] min-h-screen;
+}
+
+/* Custom range input styling */
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  @apply w-full h-1.5 rounded-full outline-none cursor-pointer;
+  background: var(--bg);
+  box-shadow: inset 2px 2px 5px var(--shadow-dark, #b8bec7), inset -2px -2px 5px var(--shadow-light, #ffffff);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply w-4.5 h-4.5 rounded-full cursor-pointer transition-all duration-200 border-2 border-white/80;
+  background: var(--panel-bg);
+  box-shadow: 3px 3px 7px var(--shadow-dark, #b8bec7), -3px -3px 7px var(--shadow-light, #ffffff);
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  box-shadow: 4px 4px 10px var(--shadow-dark, #b8bec7), -4px -4px 10px var(--shadow-light, #ffffff);
+}
