@@ -48,6 +48,8 @@ Atualmente cursando o 1º semestre de Análise e Desenvolvimento de Sistemas na 
 | :--- | :--- | :---: |
 | **MVP+ Gerador de QRCODE** | Criação de QRCODES personalizados. | [Ver Projeto](./projeto-mvp-qrcode/) |
 | **Corrida do prompt** | Atividade em grupo onde trios usam até 5 tentativas para obter o melhor resultado de uma IA, refinando o prompt a cada rodada.. | [Ver Projeto](./projeto-corrida-do-prompt/) |
-| **Laboratorio de Classificação** | Criação de imagens por uso da IA. | [Ver Projeto](./projeto-laboratorio-de-classificacao-visual/) |
+| **Laboratorio de Classificação** | Mostrar mais
+22:09
+Atividade prática em duas partes: primeiro, treinar uma IA com imagens estereotipadas para observar como ela erra na classificação; depois, refletir por escrito sobre como esse viés nos dados causa impacto real na sociedade. | [Ver Projeto](./projeto-laboratorio-de-classificacao-visual/) |
 | **Batalha de Modelo** | Criação de imagens por uso da IA. | [Ver Projeto](./projeto-batalha-de-modelo/) |
 
